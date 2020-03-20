@@ -2,22 +2,35 @@ import Initial.*;
 
 public class BinarySearch{
 	public static void main(String args[]){
-		int arr[] = initial.unsortedArray;
-		int x = initial.sc.nextInt();
+		int arr[] = initial.sortedArray;
 		int n = arr.length;
 		boolean flag = false;
+		int steps = 0;
 		
-		for(int i=0;i<n;i++){
-			if(arr[i]==x){
+		int left = 0;
+		int right = n-1;
+		
+		initial.printArray(arr,"Sorted Array");
+		int x = initial.sc.nextInt();
+		
+		while(left<=right){
+			int mid = (left+right)/2;
+			if(arr[mid]==x){
 				flag = true;
+				break;
+			}else if(arr[mid]<x){
+				left = mid+1;
+			}else{
+				right = mid-1;
 			}
+			steps++;
 		}
 		
-		initial.printArray(arr,"Unsorted Array");
 		if(flag){
 			System.out.println(x+" is there!");
 		}else{
 			System.out.println(x+" is not there!");
 		}
+		System.out.println("Steps = "+steps);
 	}
 }
