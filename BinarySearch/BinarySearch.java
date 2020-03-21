@@ -11,9 +11,12 @@ public class BinarySearch{
 		int right = n-1;
 		
 		initial.printArray(arr,"Sorted Array");
+		System.out.println("Length = "+arr.length);
+		
 		int x = initial.sc.nextInt();
 		
 		while(left<=right){
+			steps++;
 			int mid = left+(right-left)/2;
 			if(arr[mid]==x){
 				flag = true;
@@ -23,7 +26,6 @@ public class BinarySearch{
 			}else{
 				right = mid-1;
 			}
-			steps++;
 		}
 		
 		if(flag){
@@ -32,5 +34,6 @@ public class BinarySearch{
 			System.out.println(x+" is not there!");
 		}
 		System.out.println("Steps = "+steps);
+		System.out.println("Complexity : O(log(n))");
 	}
 }

@@ -12,7 +12,6 @@ public class initial{
 			System.out.print(arr[i]+" , ");
 		}
 		System.out.println();
-		System.out.println("Length = "+arr.length);
 	}
 	
 }
