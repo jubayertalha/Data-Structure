@@ -54,9 +54,14 @@ int main(){
 
     if(len!=0){
         cout<<"There is "<<len<<" Elements which has Duplicate Elements:"<<endl;
+        int total = 0;
         for(int l=0;l<lastIndexOfCountedNumbers;l++){
-            if(countOfDuplicateNumbers[l]!=0) cout<<countedNumbers[l]<<" has "<<countOfDuplicateNumbers[l]<<" Duplicate Elements."<<endl;
+            if(countOfDuplicateNumbers[l]!=0){
+                cout<<countedNumbers[l]<<" has "<<countOfDuplicateNumbers[l]<<" Duplicate Elements."<<endl;
+                total+=countOfDuplicateNumbers[l];
+            }
         }
+        cout<<"a[] has total "<<total<<" Duplicated Elements."<<endl;
     }else{
         cout<<"There is no Duplicate Elements."<<endl;
     }
