@@ -3,12 +3,14 @@ using namespace std;
 
 template <class StackType> class Stack{
     private:
-        StackType stack[10], top, max;
+        StackType *stack;
+        int top, max;
 
     public:
         Stack(){
             top = 0;
             max = 10;
+            stack = new StackType[max];
         }
 
     private:
@@ -26,7 +28,8 @@ template <class StackType> class Stack{
                 cout<<"Stack is Full!!"<<endl;
                 return;
             }
-            stack[top++] = element;
+            stack[top] = element;
+            top++;
             cout<<element<<" is pushed."<<endl;
         }
 
@@ -84,17 +87,17 @@ int main()
 
     Stack<double> ds1, ds2;
 
-    /*ds1.push(1.1);
+    ds1.push(1.1);
     ds2.push(2.2);
     ds1.push(3.3);
     ds2.push(4.4);
     ds1.push(5.5);
-    ds2.push(6.6);*/
+    ds2.push(6.6);
 
     ds1.topElement();
     ds1.show();
 
-    /*ds2.topElement();
+    ds2.topElement();
     ds2.show();
 
     for(int i=0; i<3; i++) ds1.pop();
@@ -102,8 +105,8 @@ int main()
     ds1.show();
 
     for(int i=0; i<3; i++) ds2.pop();
- `  ds2.topElement();
-    ds2.show();*/
+    ds2.topElement();
+    ds2.show();
 
     return 0;
 }
