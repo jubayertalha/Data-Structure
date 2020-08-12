@@ -1,10 +1,16 @@
 #include<iostream>
 using namespace std;
 
+char* myfunc(char *ptr){
+    ptr+=3;
+    return (ptr);
+}
+
 int main(){
-    for(int i=0;i<100;i++){
-        cout<<i%6;
-    }
+    char *x,*y;
+    x = "EXAMVEDA";
+    y=myfunc(x);
+    cout<<"y="<<y;
     return 0;
 }
 
