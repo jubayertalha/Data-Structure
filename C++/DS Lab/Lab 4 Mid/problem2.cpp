@@ -25,7 +25,7 @@ class Stack{
         }
 
         void resize(int size = 10){
-            int *tempStack = new int[size];
+            int *tempStack = new int[max+size];
             for(int i=0;i<max;i++) tempStack[i] = stack[i];
             delete [] stack;
             stack = tempStack;

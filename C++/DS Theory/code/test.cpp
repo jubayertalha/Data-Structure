@@ -1,16 +1,18 @@
 #include<iostream>
 using namespace std;
 
-char* myfunc(char *ptr){
-    ptr+=3;
-    return (ptr);
-}
 
-int main(){
-    char *x,*y;
-    x = "EXAMVEDA";
-    y=myfunc(x);
-    cout<<"y="<<y;
+int main() {
+    int i = 0, x = 0;
+    do {
+        if (i % 5 == 0) {
+             cout<<x;
+             x++;
+             }
+       ++i;
+    } while(i < 10);
+
+    cout<<x;
     return 0;
 }
 
