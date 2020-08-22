@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cstdlib>
 #include<chrono>
+#include <iomanip>
 #include <ctime>
 #include <ratio>
 using namespace std;
@@ -14,7 +15,7 @@ void copyArray(int original[],int cpy[],int n){
 
 void initializeWithRandomNumbers(int a[],int n){
     for(int i=0;i<n;i++){
-        a[i] = rand() % 1000;
+        a[i] = rand() % 20000;
     }
 }
 
@@ -33,8 +34,8 @@ void bubbleSort(int arr[],int n){
         if(flag) break;
     }
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
-    duration<double, milli> time_span = (t2 - t1)*1000;
-    cout<<time_span.count()<<"\t\t ";
+    duration<double, milli> time_span = (t2 - t1);
+    cout<<fixed<<std::setprecision(2)<<time_span.count()<<"\t\t ";
 }
 
 void selectionSort(int arr[],int n){
@@ -56,8 +57,8 @@ void selectionSort(int arr[],int n){
     //long double t2 = time(0)*1000;
     //cout<<t2-t1<<"\t\t ";
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
-    duration<double, milli> time_span = (t2 - t1)*1000;
-    cout<<time_span.count()<<"\t\t ";
+    duration<double, milli> time_span = (t2 - t1);
+    cout<<fixed<<setprecision(2)<<time_span.count()<<"\t\t ";
 }
 
 void insertionSort(int arr[],int n){
@@ -71,60 +72,62 @@ void insertionSort(int arr[],int n){
         arr[j+1] = num;
     }
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
-    duration<double, milli> time_span = (t2 - t1)*1000;
-    cout<<time_span.count()<<"\t\t ";
+    duration<double, milli> time_span = (t2 - t1);
+    cout<<fixed<<setprecision(2)<<time_span.count()<<"\t\t ";
 }
 
 int main(){
-    int ran50[50],ran100[100],ran200[200],ran400[400],ran800[800];
-    int a50[50],a100[100],a200[200],a400[400],a800[800];
+    int ran1000[1000],ran2000[2000],ran4000[4000],ran8000[8000],ran16000[16000];
+    int a1000[1000],a2000[2000],a4000[4000],a8000[8000],a16000[16000];
 
-    initializeWithRandomNumbers(ran50,50);
-    initializeWithRandomNumbers(ran100,100);
-    initializeWithRandomNumbers(ran200,200);
-    initializeWithRandomNumbers(ran400,400);
-    initializeWithRandomNumbers(ran800,800);
+    initializeWithRandomNumbers(ran1000,1000);
+    initializeWithRandomNumbers(ran2000,2000);
+    initializeWithRandomNumbers(ran4000,4000);
+    initializeWithRandomNumbers(ran8000,8000);
+    initializeWithRandomNumbers(ran16000,16000);
 
-    cout<<"\t\t\t\t\t\tNumber of Inputs\n"<<endl;
-    cout<<"\t\t\t 50 \t\t 100 \t\t 200 \t\t 400 \t\t 800 \n"<<endl;
+    cout<<"\n\t\t\t\t\t\tNumber of Inputs\n"<<endl;\
+    cout<<"-------------------------------------------------------------------------------------------------\n"<<endl;
+    cout<<"\t\t\t 1000 \t\t 2000 \t\t 4000 \t\t 8000 \t\t 16000 \n"<<endl;
+    cout<<"-------------------------------------------------------------------------------------------------\n"<<endl;
 
-    cout<<"Bubble Sort\t\t ";
-    copyArray(ran50,a50,50);
-    copyArray(ran100,a100,100);
-    copyArray(ran200,a200,200);
-    copyArray(ran400,a400,400);
-    copyArray(ran800,a800,800);
-    bubbleSort(a50,50);
-    bubbleSort(a100,100);
-    bubbleSort(a200,200);
-    bubbleSort(a400,400);
-    bubbleSort(a800,800);
+    cout<<"Bubble Sort\t|\t ";
+    copyArray(ran1000,a1000,1000);
+    copyArray(ran2000,a2000,2000);
+    copyArray(ran4000,a4000,4000);
+    copyArray(ran8000,a8000,8000);
+    copyArray(ran16000,a16000,16000);
+    bubbleSort(a1000,1000);
+    bubbleSort(a2000,2000);
+    bubbleSort(a4000,4000);
+    bubbleSort(a8000,8000);
+    bubbleSort(a16000,16000);
     cout<<"\n\n";
 
-    cout<<"Selection Sort\t\t ";
-    copyArray(ran50,a50,50);
-    copyArray(ran100,a100,100);
-    copyArray(ran200,a200,200);
-    copyArray(ran400,a400,400);
-    copyArray(ran800,a800,800);
-    selectionSort(a50,50);
-    selectionSort(a100,100);
-    selectionSort(a200,200);
-    selectionSort(a400,400);
-    selectionSort(a800,800);
+    cout<<"Selection Sort\t|\t ";
+    copyArray(ran1000,a1000,1000);
+    copyArray(ran2000,a2000,2000);
+    copyArray(ran4000,a4000,4000);
+    copyArray(ran8000,a8000,8000);
+    copyArray(ran16000,a16000,16000);
+    selectionSort(a1000,1000);
+    selectionSort(a2000,2000);
+    selectionSort(a4000,4000);
+    selectionSort(a8000,8000);
+    selectionSort(a16000,16000);
     cout<<"\n\n";
 
-    cout<<"Insertion Sort\t\t ";
-    copyArray(ran50,a50,50);
-    copyArray(ran100,a100,100);
-    copyArray(ran200,a200,200);
-    copyArray(ran400,a400,400);
-    copyArray(ran800,a800,800);
-    insertionSort(a50,50);
-    insertionSort(a100,100);
-    insertionSort(a200,200);
-    insertionSort(a400,400);
-    insertionSort(a800,800);
+    cout<<"Insertion Sort\t|\t ";
+    copyArray(ran1000,a1000,1000);
+    copyArray(ran2000,a2000,2000);
+    copyArray(ran4000,a4000,4000);
+    copyArray(ran8000,a8000,8000);
+    copyArray(ran16000,a16000,16000);
+    insertionSort(a1000,1000);
+    insertionSort(a2000,2000);
+    insertionSort(a4000,4000);
+    insertionSort(a8000,8000);
+    insertionSort(a16000,16000);
     cout<<"\n\n";
 
     return 0;

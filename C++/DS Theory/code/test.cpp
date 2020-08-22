@@ -1,18 +1,15 @@
 #include<iostream>
 using namespace std;
 
+void print(int i){
+    cout<<i<<endl;
+    i--;
+    if(i>0) print(i);
+    else return;
+}
 
 int main() {
-    int i = 0, x = 0;
-    do {
-        if (i % 5 == 0) {
-             cout<<x;
-             x++;
-             }
-       ++i;
-    } while(i < 10);
-
-    cout<<x;
+    print(100);
     return 0;
 }
 
