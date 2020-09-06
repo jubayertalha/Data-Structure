@@ -1,15 +1,12 @@
 #include<iostream>
 using namespace std;
 
-void print(int i){
-    cout<<i<<endl;
-    i--;
-    if(i>0) print(i);
-    else return;
+int sum(int n){				if(n!=0) return n+sum(n-1);
+    return n;
 }
 
 int main() {
-    print(100);
+    cout<<sum(10);
     return 0;
 }
 
